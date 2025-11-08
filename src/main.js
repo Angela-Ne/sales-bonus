@@ -34,13 +34,13 @@ function calculateBonusByProfit(index, total, seller) {
 
    if (index === 0) {
 
-      return 15;
+      return 150;
    } else if (index === 1 || index === 2) {
-      return 10;
+      return 100;
    } else if (index === total - 1) {
       return 0;
    } else {
-      return 5;
+      return 50;
    }
 
 }
@@ -197,7 +197,7 @@ function analyzeSalesData(data, options) {
    sellerStats.forEach((seller, index) => {
 
       seller.bonus_percent = options.calculateBonus(index, sellerStats.length, seller);
-      seller.bonus_amount = (seller.profit * seller.bonus_percent) / 10;
+      seller.bonus_amount = (seller.profit * seller.bonus_percent) / 100;
 
 
       seller.top_products = Object.entries(seller.products_sold || {})
