@@ -197,7 +197,7 @@ function analyzeSalesData(data, options) {
    sellerStats.forEach((seller, index) => {
 
       seller.bonus_percent = options.calculateBonus(index, sellerStats.length, seller);
-      seller.bonus_amount = (seller.profit * seller.bonus_percent) / 100;
+      seller.bonus_amount = (seller.profit * seller.bonus_percent) / 10;
 
 
       seller.top_products = Object.entries(seller.products_sold || {})
