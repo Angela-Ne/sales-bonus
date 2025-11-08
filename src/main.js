@@ -20,7 +20,6 @@ function calculateSimpleRevenue(purchase, _product) {
    return revenue;
 }
 
-
 /**
  * Функция для расчета бонусов
  * @param index порядковый номер в отсортированном массиве
@@ -114,7 +113,7 @@ function analyzeSalesData(data, options) {
 
 
    const sellerIndex = sellerStats.reduce((acc, seller) => {
-    return { ...acc, [seller.seller_id]: seller };
+      return { ...acc, [seller.seller_id]: seller };
    }, {});
 
    const productIndex = data.products.reduce((acc, product) => {
@@ -168,13 +167,13 @@ function analyzeSalesData(data, options) {
             }
          });
 
-         seller.revenue = (seller.revenue || 0) + total_amount;
+
       }
 
    });
 
    sellerStats.sort((a, b) => b.profit - a.profit);
-  // const sortedSellerStats = sellerStats.toSorted((a, b) => b.profit - a.profit);
+   // const sortedSellerStats = sellerStats.toSorted((a, b) => b.profit - a.profit);
 
    sellerStats.forEach((seller, index) => {
 
@@ -211,7 +210,7 @@ function analyzeSalesData(data, options) {
    return sellerStats.map(seller => ({
       seller_id: seller.seller_id,
       name: seller.seller_name,
-      revenue: +seller.revenue.toFixed(2),
+      revenue: seller.revenue.toFixed(2),
       profit: +seller.profit.toFixed(2),
       sales_count: seller.sales_count,
       top_products: seller.top_products,
